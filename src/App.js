@@ -3,26 +3,28 @@ import { useState } from 'react'
 
 
 function App() {
-  const [ name, setName] = useState('peter')
   const [events, setEvents] = useState([
     {title: "mario's birthday bash", id: 1},
     {title: "bowser's live stream", id: 2},
     {title: "race on moo moo farm", id: 3}
   ])
 
-  const handleClick = () => {
-    setName('scarface')
-    console.log(name)
+  const handleClick = (id) => {
+    setEvents((preEvents) => {
+      return preEvents.filter((event) => {
+        return id !== event.id
+      })
+    })
+    console.log(id)
   }
   return (
     <div className="App">
-      <h2>My name is {name} </h2>
-      {events.map((event) => [
-        <ul key={event.id}>
-          <li>{event.title}</li>
-        </ul>
-      ])}
-      <button onClick={handleClick}>Change Name</button>
+      {events.map((event) => (
+        <div key={event.id}>
+          <h2>{event.title}</h2>
+          <button onClick={() => handleClick(event.id)}>Delete Name</button>
+        </div>
+      ))}
     </div>
   );
 }
