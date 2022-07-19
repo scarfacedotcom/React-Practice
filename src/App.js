@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 //components
 import  Title  from './components/Title'
+import Modal from './components/Modal';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
   }
   return (
     <div className="App">
-      < Title />
+      < Title Title = 'my first prop' />
       {showEvents && (<div>
         <button onClick={() => setShowEvents(false) }>Hide me</button>
       </div>)}
@@ -38,6 +39,7 @@ function App() {
           <button onClick={() => handleClick(event.id)}>Delete Name</button>
         </div>
       ))}
+      <Modal />
     </div>
   );
 }
