@@ -22,13 +22,13 @@ function App() {
   }
   return (
     <div className="App">
-      <div>
+      {showEvents && (<div>
         <button onClick={() => setShowEvents(false) }>Hide me</button>
-      </div>
-      <div>
+      </div>)}
+      {!showEvents && (<div>
         <button onClick={() => setShowEvents(true) }>Show me</button>
-      </div>
-      {events.map((event) => (
+      </div>)}
+      { showEvents && events.map((event) => (
         <div key={event.id}>
           <h2>{event.title}</h2>
           <button onClick={() => handleClick(event.id)}>Delete Name</button>
