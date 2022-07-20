@@ -1,7 +1,8 @@
 import './Modal.css'
+import ReactDOM from 'react-dom' 
 
 export default function Modal({ children, handleClose }) {
-  return (
+  return ReactDOM.createPortal((
     <div className="modal-backdrop">
       <div className="modal">
 
@@ -10,5 +11,5 @@ export default function Modal({ children, handleClose }) {
 
       </div>
     </div>
-  )
+  ), document.body)
 }
