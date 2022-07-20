@@ -8,13 +8,12 @@ import Modal from './components/Modal';
 
 function App() {
   const [ showEvents, setShowEvents] = useState(true);
+  const [ showModal, setShowModal ] = useState(false)
   const [events, setEvents] = useState([
     {title: "mario's birthday bash", id: 1},
     {title: "bowser's live stream", id: 2},
     {title: "race on moo moo farm", id: 3}
   ])
-
-  console.log(showEvents)
 
   const handleClick = (id) => {
     setEvents((preEvents) => {
@@ -24,8 +23,13 @@ function App() {
     })
     console.log(id)
   }
+
+  const handleClose = () => {
+    setShowModal(false)
+  }
   return (
     <div className="App">
+      <button onClick={() => setShowModal(true) } >Show Modal</button>
       < Title Title = 'my first prop' />
       {showEvents && (<div>
         <button onClick={() => setShowEvents(false) }>Hide me</button>
@@ -39,10 +43,10 @@ function App() {
           <button onClick={() => handleClick(event.id)}>Delete Name</button>
         </div>
       ))}
-      <Modal>
+      { showModal && <Modal handleClose={handleClose} >
         <h2>10% Off Coupon Code!!</h2>
         <p>Use the code NINJA10 at the checkout.</p> 
-      </Modal>
+      </Modal>}
     </div>
   );
 }
