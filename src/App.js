@@ -39,7 +39,10 @@ function App() {
           <button onClick={() => handleClick(event.id)}>Delete Name</button>
         </div>
       ))}
-      <Modal />
+      <Modal>
+        <h2>10% Off Coupon Code!!</h2>
+        <p>Use the code NINJA10 at the checkout.</p> 
+      </Modal>
     </div>
   );
 }
