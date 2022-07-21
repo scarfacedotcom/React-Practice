@@ -22,7 +22,7 @@ export default function NewEventForm() {
     const event = {
       title : title,
       date: date,
-      id: Math.random(Math.floor *1000)
+      id: Math.floor(Math.random() *1000)
     }
     handleReset();
     console.log(event)
