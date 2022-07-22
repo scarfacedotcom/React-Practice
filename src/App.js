@@ -17,6 +17,7 @@ function App() {
     setEvents((preEvents) => {
       return [...preEvents, event]
     })
+    setShowModal(false)
   }
 
   const handleClick = (id) => {
@@ -27,10 +28,7 @@ function App() {
     })
     console.log(id)
   }
-
-  const handleClose = () => {
-    setShowModal(false)
-  }
+  
   return (
     <div className="App">
       <button onClick={() => setShowModal(true) } >Add New Event</button>
@@ -42,7 +40,7 @@ function App() {
         <button onClick={() => setShowEvents(true) }>Show me</button>
       </div>)}
       { showEvents && <EventList handleClick={handleClick} events={events} /> }
-      { showModal && <Modal handleClose={handleClose} >
+      { showModal && <Modal >
         <NewEventForm addEvent={addEvent} />
       </Modal>}
     </div>
