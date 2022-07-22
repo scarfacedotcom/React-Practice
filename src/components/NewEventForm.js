@@ -6,6 +6,7 @@ export default function NewEventForm() {
 
   const [ title, setTitle ] = useState('');
   const [ date , setDate ] = useState('');
+  const [ location, setLocation] = useState('')
 
   const handleChange = (e) => {
     console.log(e.target.value)
@@ -46,6 +47,15 @@ export default function NewEventForm() {
           onChange={(e) => setDate(e.target.value)} 
           value={date}
         />
+      </label>
+
+      <label>
+        <span>Location</span>
+        <select onChange={(e) => setLocation(e.target.value) } >
+          <option value="nigeria">Nigeria</option>
+          <option value="kenya">kenya</option>
+          <option value="mali">mali</option>
+        </select>
       </label>
 
       <button>Submit</button>
