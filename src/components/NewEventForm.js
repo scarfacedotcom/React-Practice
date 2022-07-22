@@ -23,6 +23,7 @@ export default function NewEventForm() {
     const event = {
       title : title,
       date: date,
+      location: location,
       id: Math.floor(Math.random() *1000)
     }
     handleReset();
@@ -60,8 +61,6 @@ export default function NewEventForm() {
 
       <button>Submit</button>
       <button onClick={handleReset}>Reset</button>
-
-      <p>Title- {title} , Date- {date} </p>
     </form>
   )
 }
